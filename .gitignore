@@ -1,0 +1,16 @@
+# 銀行交易資料與執行產物（內含真實財務資訊，絕不可進版控）
+downloads/
+moze/
+diagnostics/
+logs/
+
+# 瀏覽器 profile（含網銀登入 session cookie、快取等敏感狀態）
+chrome_profile/
+
+# Python
+__pycache__/
+*.pyc
+
+# 虛擬環境
+.venv/
+venv/

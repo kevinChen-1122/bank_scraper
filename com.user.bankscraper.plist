@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  com.user.bankscraper.plist
+  安裝方式：
+    cp com.user.bankscraper.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.user.bankscraper.plist
+
+  移除排程：
+    launchctl unload ~/Library/LaunchAgents/com.user.bankscraper.plist
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.user.bankscraper</string>
+
+    <!-- 每天 12:00 執行 -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>   <integer>12</integer>
+        <key>Minute</key> <integer>0</integer>
+    </dict>
+
+    <!-- ⚠️ 改成你的實際路徑 -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/blau/.venv/bank/bin/python</string>
+        <string>/Users/blau/Desktop/bank_scraper/main.py</string>
+    </array>
+
+    <!-- 工作目錄 -->
+    <key>WorkingDirectory</key>
+    <string>/Users/blau/Desktop/bank_scraper</string>
+
+    <!-- Log -->
+    <key>StandardOutPath</key>
+    <string>/Users/blau/Desktop/bank_scraper/logs/stdout.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/blau/Desktop/bank_scraper/logs/stderr.log</string>
+
+    <!-- 確保在登入後才執行（需要 Keychain） -->
+    <key>SessionType</key>
+    <string>Aqua</string>
+</dict>
+</plist>
